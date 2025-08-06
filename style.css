@@ -1,15 +1,16 @@
-/* === Base Setup === */
+/* === Global Reset === */
 body {
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Charcoal Black */
-    color: #F2F2F2;             /* Off-White Text */
+    background-color: #121212;
+    color: #F2F2F2;
     font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
 }
 
 h1, h2, h3 {
     font-family: 'Orbitron', sans-serif;
-    color: #00FFFF; /* Neon Cyan */
+    color: #00FFFF;
 }
 
 a {
@@ -26,6 +27,9 @@ a:hover {
     background-color: #1C1C1C;
     padding: 20px 0;
     border-bottom: 2px solid #00FFFF;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 .navbar .container {
@@ -39,15 +43,39 @@ a:hover {
     height: 50px;
 }
 
-.navbar nav a {
-    margin-left: 20px;
+.desktop-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.desktop-nav a {
     font-weight: bold;
     color: #F2F2F2;
     transition: color 0.3s;
 }
 
-.navbar nav a:hover {
+.desktop-nav a:hover {
     color: #00FFFF;
+}
+
+.mobile-nav-toggle {
+    display: none;
+    font-size: 28px;
+    color: #00FFFF;
+    cursor: pointer;
+}
+
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: #1C1C1C;
+    padding: 10px 40px;
+    border-top: 1px solid #00FFFF;
+}
+
+.mobile-nav a {
+    padding: 10px 0;
+    color: #F2F2F2;
 }
 
 /* === Hero Section === */
@@ -58,6 +86,10 @@ a:hover {
     height: 90vh;
     text-align: center;
     background: linear-gradient(to bottom, #121212, #1F1F1F);
+}
+
+.hero.parallax {
+    background-color: #121212; /* fallback only */
 }
 
 .hero-text h1 {
@@ -97,22 +129,11 @@ a:hover {
     background-color: #1F1F1F;
 }
 
-.section h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
 .features {
     list-style: none;
     padding: 0;
     font-size: 1.2em;
     line-height: 2em;
-}
-
-/* === Contact === */
-#contact a {
-    font-weight: bold;
-    color: #00FFFF;
 }
 
 /* === Footer === */
@@ -124,14 +145,79 @@ footer {
     color: #AAAAAA;
 }
 
+/* === Contact Form === */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 6px;
+    border: none;
+    background: #2A2A2A;
+    color: #F2F2F2;
+}
+
+.contact-form textarea {
+    height: 120px;
+    resize: none;
+}
+
+/* === Scroll Reveal Animation === */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === Preloader === */
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader {
+    border: 6px solid #1F1F1F;
+    border-top: 6px solid #00FFFF;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* === Responsive === */
 @media (max-width: 768px) {
-    .navbar .container {
-        flex-direction: column;
+    .desktop-nav {
+        display: none;
     }
 
-    .navbar nav a {
-        margin: 10px 0;
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    .mobile-nav.open {
+        display: flex;
     }
 
     .hero-text h1 {
