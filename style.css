@@ -1,0 +1,144 @@
+/* === Base Setup === */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Charcoal Black */
+    color: #F2F2F2;             /* Off-White Text */
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00FFFF; /* Neon Cyan */
+}
+
+a {
+    color: #00FFFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* === Navbar === */
+.navbar {
+    background-color: #1C1C1C;
+    padding: 20px 0;
+    border-bottom: 2px solid #00FFFF;
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.logo {
+    height: 50px;
+}
+
+.navbar nav a {
+    margin-left: 20px;
+    font-weight: bold;
+    color: #F2F2F2;
+    transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #00FFFF;
+}
+
+/* === Hero Section === */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    text-align: center;
+    background: linear-gradient(to bottom, #121212, #1F1F1F);
+}
+
+.hero-text h1 {
+    font-size: 3.5em;
+    margin: 0;
+}
+
+.hero-text .slogan {
+    font-size: 1.5em;
+    margin: 10px 0 30px;
+    color: #AAAAAA;
+}
+
+.btn {
+    background-color: #00FFFF;
+    color: #121212;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #00cccc;
+}
+
+/* === Sections === */
+.section {
+    padding: 80px 40px;
+    background-color: #121212;
+}
+
+.section.alt {
+    background-color: #1F1F1F;
+}
+
+.section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2em;
+    line-height: 2em;
+}
+
+/* === Contact === */
+#contact a {
+    font-weight: bold;
+    color: #00FFFF;
+}
+
+/* === Footer === */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #1C1C1C;
+    border-top: 2px solid #00FFFF;
+    color: #AAAAAA;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+    }
+
+    .navbar nav a {
+        margin: 10px 0;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5em;
+    }
+
+    .section {
+        padding: 60px 20px;
+    }
+}
